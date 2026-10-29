@@ -1,59 +1,33 @@
-# Banknote Authentication Using Machine Learning
+# Banknote Authentication — Machine Learning Study
 
-A machine learning and deep learning project for detecting counterfeit banknotes using the **Banknote Authentication dataset** from the UCI Machine Learning Repository.
+A study of banknote classification using the [UCI Banknote Authentication dataset](https://archive.ics.uci.edu/dataset/267/banknote+authentication).
 
-## Project Overview
+## Repository contents
 
-The dataset contains **1,372 banknote samples** with four numerical features extracted from high-resolution banknote images using **Wavelet Transform**:
+This repository contains the **[project report](Sahte%20Banknot%20Tespiti%20%28Makine%20Ogrenmesi%29.pdf)**, written in Turkish. Training scripts, notebooks and saved models are not included. The summary below describes the documented experiment.
 
-* Variance
-* Skewness
-* Kurtosis
-* Entropy
+## Dataset and approach
 
-The target variable is binary:
+The dataset contains 1,372 samples with four numerical features derived from banknote images: variance, skewness, kurtosis and entropy. The study uses an 80/20 train/test split and feature standardization with `StandardScaler`.
 
-* `0` — Counterfeit banknote
-* `1` — Genuine banknote
+## Neural network
 
-The dataset was split into **80% training and 20% testing data**, followed by feature standardization using `StandardScaler`.
+- Four input features.
+- Dense layers with 16 and 8 ReLU units.
+- 20% dropout.
+- A single sigmoid output.
+- Adam optimization, binary cross-entropy and early stopping.
 
-## Model Architecture
+## Reported evaluation
 
-The final neural network uses:
+| Metric | Reported value |
+| --- | --- |
+| Test accuracy | 100% |
+| ROC-AUC | 1.00 |
+| Test loss | 0.0021 |
 
-* Input layer: 4 features
-* Dense layer: 16 neurons, ReLU
-* Dropout: 20%
-* Dense layer: 8 neurons, ReLU
-* Dropout: 20%
-* Output layer: 1 neuron, Sigmoid
-* Optimizer: Adam
-* Loss function: Binary Crossentropy
-* Early Stopping
+These results describe the report's test experiment. They do not establish performance on other datasets or real-world banknotes, and cannot be reproduced from this repository alone.
 
-## Evaluation
+## Tools used in the study
 
-The final model achieved:
-
-* **Test Accuracy:** 100%
-* **ROC-AUC:** 1.00
-* **Test Loss:** 0.0021
-
-Additional experiments were conducted to compare different optimizers and the effect of Dropout on model performance.
-
-## Technologies
-
-* Python
-* TensorFlow / Keras
-* Scikit-learn
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-
-## Dataset
-
-UCI Machine Learning Repository — Banknote Authentication Dataset
-
-https://archive.ics.uci.edu/dataset/267/banknote+authentication
+Python · TensorFlow/Keras · Scikit-learn · Pandas · NumPy · Matplotlib · Seaborn
